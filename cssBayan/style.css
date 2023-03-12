@@ -19,7 +19,7 @@ body {
 }
 
 .wrapper {
-    max-width: 50%;
+    width: 60vw;
     margin: 0 auto;
 }
 
@@ -27,6 +27,7 @@ h1 {
     font-size: 3.5rem;
     padding: 1rem 0px 1rem 0px;
     font-weight: 700;
+    border-bottom: 1px solid #000;
 }
 
 .item__title {
@@ -38,8 +39,8 @@ h1 {
 
 h3 {
     font-size: 1.5rem;
-    font-weight: 400;
-    color: #000;
+    font-weight: 700;
+    color: blue;
     transition: all 0.3s;
 }
 
@@ -78,12 +79,20 @@ h3 {
 }
 
 .item__radio:checked~.item__image {
-    padding-bottom: 70%;
+    padding-bottom: 50%;
     transition: .5s;
 }
 
+.item__radio:checked~.item__title {
+    border-bottom: 0;
+}
+
+.item__radio:hover~.item__title {
+    border-bottom: 0;
+}
+
 .item__radio:hover~.item__image {
-    padding-bottom: 70%;
+    padding-bottom: 50%;
     transition: .5s;
 }
 
@@ -97,7 +106,7 @@ h3 {
 .item__icon {
     width: 2rem;
     height: 2rem;
-    background-image: url('../cssBayan/assets/svg/arrow.svg');
+    background-image: url('./assets/svg/arrow.svg');
     background-size: 100%;
     background-repeat: no-repeat;
     opacity: 0;
@@ -118,4 +127,32 @@ h3 {
     opacity: 1;
 }
 
+.accordion:hover .item__radio + .item__title h3 {
+    color: #000;
+}
 
+.accordion__item input:checked + .item__title h3 {
+    color:#000;
+}
+
+.accordion__item:active .item__radio + .item__title h3 {
+    color: blue;
+}
+
+.accordion__item:active .item__radio + .item__title .item__icon {
+    background-image: url('./assets/svg/arrowBlue.svg');
+}
+
+.item__radio:active~.item__image {
+    filter: blur(0.05em);
+}
+
+@media (min-width: 820px) {
+    .accordion:hover * {
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 320px) {
+
+}
